@@ -11,7 +11,7 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
+// Create an SVG wrapper, append an SVG group that will hold chart, and shift the latter by left and top margins.
 var svg = d3
   .select("#scatter")
   .append("svg")
@@ -31,8 +31,7 @@ function xScale(censusData, chosenXAxis) {
   // Create scales
   var xLinearScale = d3.scaleLinear()
     .domain([d3.min(censusData, d => d[chosenXAxis]) * 0.8,
-      d3.max(censusData, d => d[chosenXAxis]) * 1.2
-    ])
+      d3.max(censusData, d => d[chosenXAxis]) * 1.2])
     .range([0, width]);
   return xLinearScale;
 }
@@ -53,8 +52,7 @@ function yScale(censusData, chosenYAxis) {
     // Create scales
     var yLinearScale = d3.scaleLinear()
       .domain([d3.min(censusData, d => d[chosenYAxis]) * 0.8,
-        d3.max(censusData, d => d[chosenYAxis]) * 1.2
-      ])
+        d3.max(censusData, d => d[chosenYAxis]) * 1.2])
       .range([height, 0]);
     return yLinearScale;
 }
@@ -112,6 +110,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
         var ylabel = "%Poverty: ";
     }
 
+    // Format tooltip display when moused over
     var toolTip = d3.tip()
       .attr("class", "tooltip")
       .offset([100, 40])
@@ -156,12 +155,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
   
     // X- and YLinearScale function above csv import
     var xLinearScale = xScale(censusData, chosenXAxis);
-    // var yLinearScale = yScale(censusData, chosenyAxis);
-
-    // Create y scale function
-    var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(censusData, d => d.income)])
-      .range([height, 0]);
+    var yLinearScale = yScale(censusData, chosenYAxis);
   
     // Create initial axis functions
     var bottomAxis = d3.axisBottom(xLinearScale);
@@ -185,10 +179,11 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .attr("r", 18)
+        .attr("r", 16)
         .attr("fill", "green")
         .attr("opacity", ".5");
   
+    // Append state abbreviation texts
     var stateCircles = chartGroup.selectAll()
         .data(censusData)
         .enter()
@@ -225,28 +220,30 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         .classed("inactive", true)
         .text("Smoker (%)");
   
-    // Group for y-axis labels
-    var incomeLabel = chartGroup.append("text")
+    var incomeLabel = labelsGroup.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
-        .attr("x", 0 - (height/2))
+        .attr("x", (margin.left/.5))
+        .attr("y", 0 - (height + 110))
+        .attr("value", "income") // value to grab for event listener
         .attr("dy", "1em")
         .classed("aText", true)
         .classed("active", true)
         .text("Median Household Income ($)");
 
-   var povertyLabel = chartGroup.append("text")
+   var povertyLabel = labelsGroup.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - (margin.left) *.8)
-        .attr("x", 0 - (height/2))
+        .attr("x", (margin.left/.5))
+        .attr("y", 0 - (height + 90))
+        .attr("value", "poverty") // value to grab for event listener
         .attr("dy", "1em")
         .classed("inactive", true)
         .text("Poverty Rate (%)");
 
-    var ageLabel = chartGroup.append("text")
+    var ageLabel = labelsGroup.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - (margin.left) *.6)
-        .attr("x", 0 - (height/2))
+        .attr("x", (margin.left/.5))
+        .attr("y", 0 - (height + 70))
+        .attr("value", "age") // value to grab for event listener
         .attr("dy", "1em")
         .classed("inactive", true)
         .text("Age (Average)");
@@ -254,7 +251,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     // updateToolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
   
-    // X-axis labels event listener
+    // Axes labels event listener
     labelsGroup.selectAll("text")
       .on("click", function() {
         // Get value of selection
@@ -319,6 +316,8 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
                     .classed("inactive", false);
             }
         }
+
+        // On y-axis selection
         else {
             chosenYAxis = value;
 
@@ -343,7 +342,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
                     .classed("active", false)
                     .classed("inactive", true);
             }
-            else if (chosenXAxis === "poverty"){
+            else if (chosenYAxis === "poverty"){
                 incomeLabel
                     .classed("active", false)
                     .classed("inactive", true);
