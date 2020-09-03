@@ -1,12 +1,14 @@
 # D3-Challenge
 
+The task is to analyze the current trends shaping people's lives with data on the health risks facing particular demographics, as well as creating charts, graphs, and interactive elements to help readers understand findings. Information is gathered from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System. The data set included with the assignment is based on 2014 ACS 1-year estimates: https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml. The current data set includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
+
 ## Task - Core Assignment: D3 Dabbler
 Create a scatter plot between two of the data variables such as Healthcare vs. Poverty or Smokers vs. Age.
 Using the D3 techniques, create a scatter plot that represents each state with circle elements. Code this graphic in the app.js file of the homework directory—make sure to pull in the data from data.csv by using the d3.csv function. 
 
-Include state abbreviations in the circles.
-Create and situate the axes and labels to the left and bottom of the chart.
-Note: Use python -m http.server to run the visualization. This will host the page at localhost:8000 in the web browser.
+<br/>-Include state abbreviations in the circles.
+<br/>-Create and situate the axes and labels to the left and bottom of the chart.
+<br/>-Note: Use python -m http.server to run the visualization. This will host the page at localhost:8000 in the web browser.
 
 ## Impress the Boss (Bonus)
 1. More Data, More Dynamics
