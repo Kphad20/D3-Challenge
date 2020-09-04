@@ -6,9 +6,9 @@ The task is to analyze the current trends shaping people's lives with data on th
 Create a scatter plot between two of the data variables such as Healthcare vs. Poverty or Smokers vs. Age.
 Using the D3 techniques, create a scatter plot that represents each state with circle elements. Code this graphic in the app.js file of the homework directory—make sure to pull in the data from data.csv by using the d3.csv function. 
 
-<br/>-Include state abbreviations in the circles.
+-Include state abbreviations in the circles.
 <br/>-Create and situate the axes and labels to the left and bottom of the chart.
-<br/>-Note: Use python -m http.server to run the visualization. This will host the page at localhost:8000 in the web browser.
+<br/>-Use python -m http.server to run the visualization.
 
 ## Impress the Boss (Bonus)
 1. More Data, More Dynamics
