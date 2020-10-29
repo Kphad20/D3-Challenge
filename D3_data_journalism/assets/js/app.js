@@ -90,13 +90,13 @@ function stateAbbr(stateCircles, newXScale, newYScale, chosenXAxis, chosenYAxis)
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     // For x-axis
     if (chosenXAxis === "obesity") {
-      var xlabel = "%Obese: ";
+      var xlabel = "Obese: ";
     }
     else if (chosenXAxis === "smokes") {
-        var xlabel = "%Smoker: ";
+        var xlabel = "Smoker: ";
     }
     else {
-      var xlabel = "%Uninsured: ";
+      var xlabel = "Uninsured: ";
     }
 
     // For y-axis
@@ -116,13 +116,13 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
       .offset([100, 40])
       .html(function(d) {
         if (chosenXAxis === "obesity") {
-            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}`);
+            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}`);
         }
         else if (chosenXAxis !== "obesity" && chosenXAxis !== "healthcare") {
-            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}`);
+            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}`);
         }
         else {
-            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel}${d[chosenYAxis]}`);
+            return (`${d.state}<br>${xlabel} ${d[chosenXAxis]}%<br>${ylabel}${d[chosenYAxis]}`);
         }
       });
   
