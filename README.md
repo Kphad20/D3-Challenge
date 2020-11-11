@@ -9,9 +9,11 @@ I will create a scatter plot between two of the data variables such as Healthcar
 2. Create and situatethe axes and labels to the left and bottom of the chart.
 3. Use "python -m http.server" to run the visualization.
 
-## Impress the Boss
+## Dig Deeper: More Data
 1. More Data, More Dynamics
+
 Here, I will include more demographics and more risk factors. I will place additional labels in the scatter plot and give them click events so that users can decide which data to display. I will then animate the transitions for the circles' locations as well as the range of the axes. I will do this for three risk factors for each axis. 
 
 2. Incorporate d3-tip
+
 While the ticks on the axes allow us to infer approximate values for each circle, it's impossible to determine the true value without adding another layer of data. To do this, I will add tooltips to the circles and display each tooltip with the data that the user has selected. 
