@@ -1,13 +1,13 @@
-# D3-Challenge
+# D3
 
-The task is to analyze the current trends shaping people's lives with data on the health risks facing particular demographics, as well as creating charts, graphs, and interactive elements to help readers understand findings. Information is gathered from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System. The data set included with the assignment is based on 2014 [ACS](https://data.census.gov/cedsci/profile?g=0100000US) 1-year estimates. The current data set includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
+The task is to analyze the current trends shaping people's lives with data on the health risks facing particular demographics, as well as creating charts, graphs, and interactive elements to help readers understand findings. Information is gathered from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System. The data set included with the assignment is based on 2014 [ACS](https://data.census.gov/cedsci/profile?g=0100000US) 1-year estimates. The current data set includes data on rates of income, obesity, poverty, etc. by state.
 
 ## Task - Core Assignment: D3 Dabbler
-I will create a scatter plot between two of the data variables such as Healthcare vs. Poverty or Smokers vs. Age. Using the D3 techniques, I will create a scatter plot that represents each state with circle elements. I will code this graphic in the "app.js" file of the directory and make sure to pull in the data from data.csv by using the d3.csv function. 
+I will create a scatter plot between two of the data variables such as Healthcare vs. Poverty or Smokers vs. Age. Using the D3 techniques, I will create a scatter plot that represents each state with circle elements. 
 
-1. I will need to include state abbreviations in the circles.
-2. Create and situatethe axes and labels to the left and bottom of the chart.
-3. Use "python -m http.server" to run the visualization.
+1. I will include state abbreviations in the circles.
+2. Create and situate the axes and labels to the left and bottom of the chart.
+3. Use "python -m http.server" to run the visualization and host the page at localhost:8000 in the web browser. 
 
 ## Dig Deeper: More Data
 1. More Data, More Dynamics
